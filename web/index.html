@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Sephiria Companion</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head><body>
+  <header><strong id="floor">SEPHIRIA</strong><span id="connection" data-i18n="connecting"></span><button id="refresh" class="refresh" data-i18n-label="refresh">↻</button></header>
+  <nav aria-label="Navigation">
+    <button data-tab="hud" class="active" data-i18n="hud"></button><button data-tab="map" data-i18n="map"></button>
+    <button data-tab="inventory" data-i18n="inventory"></button><button data-tab="settings" data-i18n-label="settings">⚙</button>
+  </nav>
+  <main>
+    <section id="hudPanel" class="panel hud-panel">
+      <div class="hud-pages"><button data-hud-page="overview" class="active" data-i18n="overview"></button><button data-hud-page="combat" data-i18n="combat"></button></div>
+      <div id="hudOverview" class="hud-page">
+        <div class="resource-bars">
+          <div class="resource"><div><img id="hpIcon" class="resource-icon" alt=""><b>HP</b><strong id="hp">—</strong><span id="shield"></span></div><div class="bar health"><i id="hpBar"></i></div></div>
+          <div class="resource"><div><b>MP</b><strong id="mp">—</strong><span id="reservedMp"></span></div><div class="bar mana"><i id="mpBar"></i></div></div>
+        </div>
+        <div class="wallet"><span class="coin"><img id="moneyIcon" class="resource-icon" alt=""> <b id="money">—</b></span><span class="sapphire"><img id="sapphireIcon" class="resource-icon" alt=""> <b id="sapphire">—</b></span><span><img id="diceIcon" class="resource-icon" alt=""> <b id="dice">—</b></span><span><span data-i18n="level"></span> <b id="level">—</b></span></div>
+        <div class="consumables"><div class="dashes"><span data-i18n="dash"></span><strong id="dashCount">—</strong><div class="bar"><i id="dashBar"></i></div></div><button id="potionsPrev" aria-label="Previous potions">‹</button><div id="potions" class="potions"></div><button id="potionsNext" aria-label="Next potions">›</button></div>
+        <div id="miniStage" class="map-stage"><svg id="minimap" aria-label="Minimap"></svg><p id="miniEmpty" class="empty" data-i18n="beforeLoad"></p></div>
+        <div class="experience"><div><b data-i18n="exp"></b><span id="experience">—</span></div><div class="bar exp"><i id="expBar"></i></div></div>
+      </div>
+      <div id="hudCombat" class="hud-page hidden">
+        <div class="section-title"><h2 data-i18n="skills"></h2><div class="buttons"><button id="skillsPrev">‹</button><span id="skillsPage">1 / 1</span><button id="skillsNext">›</button></div></div>
+        <div id="skills" class="skills"></div>
+        <div class="section-title effects-heading"><h2 data-i18n="effects"></h2><div class="buttons"><button id="effectsPrev">‹</button><span id="effectsPage">1 / 1</span><button id="effectsNext">›</button></div></div>
+        <div id="effects" class="effects"></div>
+      </div>
+    </section>
+    <section id="mapPanel" class="panel hidden">
+      <div class="section-title"><h2 data-i18n="floorMap"></h2><div class="buttons"><button id="zoomOut" data-i18n-label="zoomOut">−</button><button id="zoomIn" data-i18n-label="zoomIn">+</button><button id="center" data-i18n-label="fitMap">↺</button></div></div>
+      <div id="mapStage" class="map-stage"><svg id="map" aria-label="Floor map"></svg><p id="mapEmpty" class="empty" data-i18n="map.loading"></p></div>
+      <p id="mapHint" class="note" data-i18n="mapHint"></p>
+    </section>
+    <section id="inventoryPanel" class="panel hidden">
+      <div class="section-title"><h2 data-i18n="inventory"></h2><span id="capacity" class="muted">—</span></div>
+      <div id="inventoryTabs" class="hud-pages inventory-tabs"><button class="active" data-inventory-page="items" data-i18n="items"></button><button data-inventory-page="combos" data-i18n="combos"></button></div>
+      <div id="inventory" class="inventory"></div><p id="inventoryNote" class="note" data-i18n="inventoryHint"></p>
+      <div id="inventoryDetails" class="inventory-details hidden">
+        <div id="inventoryCards" class="inventory-cards"></div><p id="inventoryEmpty" class="note"></p>
+        <div class="description-pages"><button id="inventoryPrev">‹</button><span id="inventoryPage">1 / 1</span><button id="inventoryNext">›</button></div>
+        <p id="inventoryDetailsHint" class="note"></p>
+      </div>
+    </section>
+    <section id="settingsPanel" class="panel hidden">
+      <div class="section-title"><h2 data-i18n="settings"></h2><span class="muted">0.4.2</span></div>
+      <label class="language-option"><span data-i18n="language"></span><select data-language id="language"><option value="ru">Русский</option><option value="en">English</option></select></label>
+      <label class="option"><input id="moveHud" type="checkbox" checked><span data-i18n="hudTransfer"></span></label>
+      <button id="ping" data-i18n="ping"></button>
+    </section>
+    <section id="waitingPanel" class="panel hidden">
+      <h2>SEPHIRIA COMPANION</h2><label class="language-option"><span data-i18n="language"></span><select data-language><option value="ru">Русский</option><option value="en">English</option></select></label>
+      <p id="waitingText" class="note" data-i18n="startup"></p><button id="startupRefresh" data-i18n="refresh"></button>
+    </section>
+  </main>
+  <footer><span id="freshness" data-i18n="beforeLoad"></span><span id="actionResult" role="status"></span></footer>
+  <dialog id="itemDialog">
+    <div class="dialog-head"><img id="itemIcon" alt=""><h2 id="itemName"></h2><button id="closeItem" data-i18n-label="close">×</button></div>
+    <div id="itemMeta" class="note"></div>
+    <div class="dialog-tabs"><button id="itemTextTab" class="active" data-i18n="description"></button><button id="itemDiagramTab" class="hidden" data-i18n="diagram"></button><button id="rotateItem" class="hidden" data-i18n="rotate"></button></div>
+    <p id="itemDescription"></p><div id="tabletDiagram" class="tablet-diagram hidden"></div>
+    <div class="description-pages"><button id="itemPrev" data-i18n="previous"></button><span id="itemPage">1 / 1</span><button id="itemNext" data-i18n="next"></button></div>
+  </dialog>
+</body></html>

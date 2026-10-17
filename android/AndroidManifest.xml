@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.sephiria.companion" android:versionCode="6" android:versionName="0.4.2">
+<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34" />
+<uses-permission android:name="android.permission.INTERNET" />
+<application android:label="Sephiria Companion" android:icon="@drawable/ic_launcher_legacy" android:roundIcon="@drawable/ic_launcher_legacy" android:theme="@android:style/Theme.Material.NoActionBar" android:allowBackup="false" android:usesCleartextTraffic="true" android:resizeableActivity="true" android:supportsRtl="true">
+<activity android:name=".MainActivity" android:icon="@drawable/ic_launcher_legacy" android:exported="true" android:excludeFromRecents="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+<activity android:name=".ScreenActivity" android:exported="false" android:launchMode="singleTask" android:configChanges="orientation|screenSize|smallestScreenSize|keyboardHidden|uiMode" android:resizeableActivity="true" />
+</application></manifest>

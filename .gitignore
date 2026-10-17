@@ -1,0 +1,46 @@
+# Local toolchains, game references and historical diagnostics
+/tools/
+/reference/
+/inspection/
+/reference-tree.json
+/tests/
+/AGENTS.md
+/docs/FEATURE_COVERAGE.md
+
+# Generated packages and build output
+/artifacts/
+**/bin/
+**/obj/
+**/build/
+**/node_modules/
+.gradle/
+*.apk
+*.aab
+*.dex
+*.class
+*.dll
+*.pdb
+*.zip
+
+# Local configuration, credentials and signing material
+.env
+.env.*
+!.env.example
+local.properties
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.key
+*.pem
+
+# Logs, captures outside the approved screenshot directory and editor files
+*.log
+*.dmp
+*.tmp
+*.bak
+.idea/
+.vscode/
+.vs/
+.DS_Store
+Thumbs.db
