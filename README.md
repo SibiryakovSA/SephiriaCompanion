@@ -38,7 +38,7 @@ Requires Android 8.0+ and a compatible PC version of Sephiria with its built-in 
 On Windows, install **PowerShell 7**, **.NET SDK 8**, **JDK 17**, and the **Android SDK** with **platform android-34** and **Build Tools 34.0.0**. Set `JAVA_HOME` and `ANDROID_SDK_ROOT`, then run:
 
 ```powershell
-.\scripts\build.ps1 -GameDirectory "D:\Games\Sephiria"
+.\scripts\build.ps1 -GameDirectory "PathToSephiria"
 ```
 
 Alternatively, pass `-JavaHome` and `-AndroidSdk` explicitly. Output: `artifacts/package-<version>/`, an APK and a ZIP.

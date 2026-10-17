@@ -38,7 +38,7 @@
 На Windows установи **PowerShell 7**, **.NET SDK 8**, **JDK 17** и **Android SDK** с **платформой android-34** и **Build Tools 34.0.0**. Задай `JAVA_HOME` и `ANDROID_SDK_ROOT`, затем выполни:
 
 ```powershell
-.\scripts\build.ps1 -GameDirectory "D:\Games\Sephiria"
+.\scripts\build.ps1 -GameDirectory "PathToSephiria"
 ```
 
 Пути также можно передать параметрами `-JavaHome` и `-AndroidSdk`. Результат: `artifacts/package-<version>/`, APK и ZIP.
